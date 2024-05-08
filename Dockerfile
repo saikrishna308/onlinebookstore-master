@@ -1,5 +1,5 @@
 FROM tomcat
-COPY target/dependency/webapp-runner.jar /usr/local/tomcat/webapps/
+COPY target/onlinebookstore.war /usr/local/tomcat/webapps/
 
 
 
