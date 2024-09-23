@@ -21,7 +21,7 @@ pipeline {
          	    }
              stage("publish to registry") {
                 steps {
-                    withDockerRegistry(credentialsId: 'docker', url: 'https://hub.docker.com/') {
+                    withDockerRegistry(credentialsId: 'docker', url: 'https://hub.docker.com/repositories/saikrishna7842') {
                            sh "docker push saikrishna7842/onlinebooks:3"
                     }
                 }
