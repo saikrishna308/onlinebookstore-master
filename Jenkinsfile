@@ -7,9 +7,10 @@ pipeline {
               	    }  
          	    } 
        	    stage("build") {  
-           	    steps {  
-                      echo " build successfully"  
+           	    steps { 
                       sh "mvn clean install"
+                      echo " build successfully"  
+                      
               	    }  
          	    } 
             stage("build docker Image") {  
