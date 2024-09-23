@@ -1,5 +1,9 @@
 pipeline {  
-    agent any  
+    agent any
+    environment {
+        DOCKER_USERNAME = credentials('docker-username') // Replace with your Jenkins credential ID
+        DOCKER_PASSWORD = credentials('docker-password') // Replace with your Jenkins credential ID
+    }
         stages { 
              stage("checkout") {  
            	    steps {  
@@ -21,7 +25,7 @@ pipeline {
          	    }
              stage("publish to registry") {
                 steps {
-                    withDockerRegistry(credentialsId: 'docker', url: 'https://hub.docker.com/repositories/saikrishna7842') {
+                     sh 'echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin'{
                            sh "docker push saikrishna7842/onlinebooks:3"
                     }
                 }
