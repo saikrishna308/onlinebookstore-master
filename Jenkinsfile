@@ -9,7 +9,7 @@ pipeline {
        	    stage("build") {  
            	    steps {  
                       echo " build successfully"  
-                      sh "mvn clean package"
+                      sh "mvn clean install"
               	    }  
          	    } 
             stage("build docker Image") {  
