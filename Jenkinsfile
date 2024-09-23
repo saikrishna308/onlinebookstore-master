@@ -15,7 +15,7 @@ pipeline {
             stage("build docker Image") {  
            	    steps {  
                       sh "docker build -t onlinebooks ."
-                      sh "docker tag onlinebooks:latest saikrishna7842/onlinebooks:3"
+                      sh "docker tag onlinebooks:3 saikrishna7842/onlinebooks:3"
                       echo " build successfully"  
               	    }  
          	    }
