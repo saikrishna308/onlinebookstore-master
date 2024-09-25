@@ -8,21 +8,21 @@ pipeline {
          	    } 
        	    stage("build") {  
            	    steps { 
-                      sh "mvn clean install"
+                      bat "mvn clean install"
                       echo " build successfully"    
               	    }  
          	    } 
             stage("build docker Image") {  
            	    steps {  
-                      sh "docker build -t onlinebooks ."
-                      sh "docker tag onlinebooks:latest saikrishna7842/onlinebooks:3"
+                      bat "docker build -t onlinebooks ."
+                      bat "docker tag onlinebooks:latest saikrishna7842/onlinebooks:3"
                       echo " build successfully"  
               	    }  
          	    }
              stage("publish to registry") {
                 steps {
                       withDockerRegistry(credentialsId: 'docker', url:'https://index.docker.io/v1/'){
-                           sh "docker push saikrishna7842/onlinebooks:3"
+                           bat "docker push saikrishna7842/onlinebooks:3"
                     }
                 }
              }
