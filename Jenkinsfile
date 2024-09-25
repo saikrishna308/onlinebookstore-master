@@ -8,13 +8,13 @@ pipeline {
          	    } 
        	    stage("build") {  
            	    steps { 
-                      bat "mvn clean install"
+                      bat 'mvn clean install'
                       echo " build successfully"    
               	    }  
          	    } 
             stage("build docker Image") {  
            	    steps {  
-                      bat "docker build -t onlinebooks ."
+                      bat 'docker build -t onlinebooks .'
                       bat "docker tag onlinebooks:latest saikrishna7842/onlinebooks:3"
                       echo " build successfully"  
               	    }  
