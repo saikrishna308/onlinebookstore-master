@@ -16,7 +16,7 @@ pipeline {
            	    steps {  
                       bat 'docker build -t onlinebooks .'
                       bat "docker tag onlinebooks:latest saikrishna7842/onlinebooks:3"
-                      echo " build successfully"  
+                      echo " build image successfully"  
               	    }  
          	    }
              stage("publish to registry") {
@@ -26,5 +26,10 @@ pipeline {
                     }
                 }
              }
+            stage("deployment") {
+                steps {
+                    bat "kubectl apply -f .\deployment.yaml"
+                    echo "deployment successfully"
+                }
         }
 }
