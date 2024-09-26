@@ -28,7 +28,7 @@ pipeline {
              }
             stage("deployment") {
                 steps {
-                    bat "kubectl apply -f .\deployment.yaml"
+                    bat 'kubectl apply -f .\deployment.yaml'
                     echo "deployment successfully"
                 }
         }
